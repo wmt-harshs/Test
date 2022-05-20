@@ -1,22 +1,10 @@
 pipeline {
     agent any
-   
-    tools {nodejs "node"}
     
     stages {
-        stage('check') {
-            steps {
-            sh 'npm config ls'
-            }
-        }
-        stage("Install") {
-            steps {
-                sh "npm install"
-            }
-        }
         stage("Build") {
             steps {
-                sh "npm run build"
+                args '-p 3000:3000'
             }
         }
     }
