@@ -1,19 +1,16 @@
 pipeline {
     agent any
-    // environment {
-    //     CI = 'true'
-    // }
-
     stages {
-        stage('build'){
+        stage("Install") {
             steps {
-                sh 'npm install'
+                sh "npm install"
             }
         }
-        stage('deploy'){
+        stage("Build") {
             steps {
-                sh 'npm run build'
+                sh "npm run build"
             }
         }
     }
+}
 }
